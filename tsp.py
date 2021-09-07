@@ -67,7 +67,7 @@ def tsp_ch(n):
   """ 
       Stochastic Part
 
-      Apply Dr. McGough's idea from class where two random indeces 
+      Apply Dr. McGough's idea where two random indeces 
       are chosen and the subarray is reversed 
   """
   output = np.array([points[k] for k in P])
