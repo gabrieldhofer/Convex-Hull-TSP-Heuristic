@@ -38,8 +38,7 @@ def tsp_ch(n):
   def dist(i,j):
     """ 
         dist returns the net length added to the tour when an interior point j 
-        is added to the tour. Basically, we remove one line segment and add 
-        two more (like rerouting) 
+        is added to the tour. 
     """
     one=cdist(points[P[i]].reshape(1,-1), points[P[i+1]].reshape(1,-1), 'euclidean')
     two=cdist(points[P[i]].reshape(1,-1), points[j].reshape(1,-1)) + \
@@ -48,7 +47,7 @@ def tsp_ch(n):
 
   """ 
       Add points to the tour greedily - i.e. add an interior points which increases 
-      the length of the tour by a minimal amount. this is how dist is applied		
+      the length of the tour by a minimal amount. 
   """
   while P.shape[0]<len(points):
     mn=1e8
