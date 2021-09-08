@@ -26,7 +26,6 @@ def show(output):
   plt.plot(temp[:,0], temp[:,1], color='red') 
   plt.show()
 
-
 def tsp_ch(n):
   """ Traveling Salesperson Problem - Convex Hull Heuristic """
   """ First, Call Convex Hull on all points """
