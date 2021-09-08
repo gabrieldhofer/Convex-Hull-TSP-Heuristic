@@ -9,15 +9,15 @@ import matplotlib.pyplot as plt
 from scipy.spatial import ConvexHull
 from scipy.spatial.distance import cdist
 
-""" Returns distance of the tour """
 def tour(lst,a,b):
+  """ Returns distance of the tour """
   s=0
   for i in range(a,b):
     s+=cdist(lst[(i+len(lst))%len(lst)].reshape(1,-1),lst[(i+1)%len(lst)].reshape(1,-1,),'euclidean')
   return s
 
-""" Show Visual of Tour """
 def show(output):
+  """ Show Visual of Tour """
   plt.ioff()  # interactive mode off
   plt.pause(2)   # brief wait
   plt.ion()  # turn interactive mode on
@@ -27,8 +27,8 @@ def show(output):
   plt.show()
 
 
-""" Traveling Salesperson Problem - Convex Hull Heuristic """
 def tsp_ch(n):
+  """ Traveling Salesperson Problem - Convex Hull Heuristic """
   """ First, Call Convex Hull on all points """
   points = np.random.rand(n, 2)   
   hull = ConvexHull(points)
@@ -36,12 +36,12 @@ def tsp_ch(n):
   z=np.zeros(n)
   for i in P: z[i]=1
 
+  def dist(i,j):
   """ 
       dist returns the net length added to the tour when an interior point j 
       is added to the tour. Basically, we remove one line segment and add 
       two more (like rerouting) 
   """
-  def dist(i,j):
     one=cdist(points[P[i]].reshape(1,-1), points[P[i+1]].reshape(1,-1), 'euclidean')
     two=cdist(points[P[i]].reshape(1,-1), points[j].reshape(1,-1)) + \
         cdist(points[P[i+1]].reshape(1,-1),points[j].reshape(1,-1))
