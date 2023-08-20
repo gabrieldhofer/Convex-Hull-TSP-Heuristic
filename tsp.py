@@ -27,8 +27,10 @@ def show(output):
   plt.show()
 
 def tsp_ch(n):
-  """ Traveling Salesperson Problem - Convex Hull Heuristic """
-  """ First, Call Convex Hull on all points """
+  """ 
+    Traveling Salesperson Problem - Convex Hull Heuristic 
+    First, Call Convex Hull on all points 
+  """
   points = np.random.rand(n, 2)   
   hull = ConvexHull(points)
   P = hull.vertices
@@ -85,4 +87,4 @@ def tsp_ch(n):
   return output
 
 if __name__ == "__main__":
-  tsp_ch(int(input()))
+  tsp_ch(int(input("N: ")))
