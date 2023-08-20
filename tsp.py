@@ -68,6 +68,8 @@ def tsp_ch(n):
       Apply Dr. McGough's idea where two random indeces 
       are chosen and the subarray is reversed 
   """
+    print("\nPerturbations (reversing subsections of array)")
+    print("----------------------------------------------")
   output = np.array([points[k] for k in P])
   bef=tour( output ,0,len(P)+1) # init tour dist of P
   i=0
@@ -79,7 +81,7 @@ def tsp_ch(n):
     aft=tour(output,0,len(P)+1)
     i+=1
     if aft<bef: 
-      print("before pert.: "+str(bef)+" after pert.: "+str(aft))
+      print("before: "+str(bef)+" after: "+str(aft))
       bef=aft
       show(output)
       i=0
