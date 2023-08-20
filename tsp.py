@@ -19,7 +19,7 @@ def tour(lst,a,b):
 def show(output):
   """ Show Visual of Tour """
   plt.ioff()  # interactive mode off
-  plt.pause(2)   # brief wait
+  plt.pause(0.1)   # brief wait
   plt.ion()  # turn interactive mode on
   plt.clf()
   temp = np.vstack((output, output[0]))
@@ -61,6 +61,8 @@ def tsp_ch(n):
           idxi=i
     P=np.concatenate((P[:idxi+1],np.array([idxj]),P[idxi+1:]), axis=None)
     z[idxj]=1
+    output = np.array([points[k] for k in P])
+    show(output)
   
   """ 
       Apply Dr. McGough's idea where two random indeces 
